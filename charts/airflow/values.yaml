@@ -1676,6 +1676,10 @@ dags:
     ##
     syncWait: 60
 
+    ## s3 fetch timeout (5s, 1m, 1h)
+    ##
+    timeout: 5m
+
 ###################################
 ## CONFIG | Kubernetes Ingress
 ###################################
