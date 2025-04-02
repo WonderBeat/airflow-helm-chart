@@ -369,7 +369,7 @@ EXAMPLE USAGE: {{ include "airflow.container.s3_sync" (dict "Release" .Release "
     {{- else }}
     - |
       while true; do
-          timeout {{ .Values.dags.s3Sync.timeout }} aws s3 sync --delete s3://{{ .Values.dags.s3Sync.bucket }}/{{ .Values.dags.s3Sync.s3Path }} {{ include "airflow.dags.path" . }}
+          timeout {{ .Values.dags.s3Sync.timeout }} aws s3 sync --exclude "__*" --delete s3://{{ .Values.dags.s3Sync.bucket }}/{{ .Values.dags.s3Sync.s3Path }} {{ include "airflow.dags.path" . }}
           sleep {{ $.Values.dags.s3Sync.syncWait }}
       done
     {{- end }}
